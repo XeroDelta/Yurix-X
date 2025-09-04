@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HackerChat | Friends</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background-color: #0a0a0a;
+      color: #00ff41;
+    }
+    .terminal-input {
+      background-color: #121212;
+      border: 1px solid #00ff41;
+      color: #00ff41;
+    }
+    .terminal-input:focus {
+      outline: none;
+      border-color: #00ff41;
+      box-shadow: 0 0 0 2px rgba(0, 255, 65, 0.2);
+    }
+    .btn-hacker {
+      background-color: #00ff41;
+      color: #121212;
+      transition: all 0.3s;
+    }
+    .btn-hacker:hover {
+      background-color: #00cc33;
+      transform: translateY(-1px);
+    }
+    .status-online {
+      color: #00ff41;
+    }
+    .status-offline {
+      color: #ff0033;
+    }
+    .glow {
+      text-shadow: 0 0 5px #00ff41;
+    }
+    .sidebar {
+      background-color: #121212;
+      border-right: 1px solid #00ff41;
+    }
+    .content {
+      background-color: #0a0a0a;
+    }
+    .friend-item:hover {
+      background-color: #121212;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex">
+
+  <!-- Sidebar -->
+  <div class="sidebar w-16 md:w-20 flex flex-col items-center py-4">
+    <div class="mb-8">
+      <div class="text-3xl font-bold glow"><YX/></div>
+    </div>
+    <nav class="flex-1 space-y-6">
+      <a href="friends.html" class="block p-2 rounded-lg bg-green-900 bg-opacity-30">
+        <i data-feather="users" class="text-green-400"></i>
+      </a>
+      <a href="chat.html" class="block p-2 rounded-lg hover:bg-green-900 hover:bg-opacity-20">
+        <i data-feather="message-square"></i>
+      </a>
+      <a href="profile.html" class="block p-2 rounded-lg hover:bg-green-900 hover:bg-opacity-20">
+        <i data-feather="user"></i>
+      </a>
+    </nav>
+    <div class="mt-auto">
+      <div class="relative">
+        <div class="w-2 h-2 rounded-full bg-green-500 absolute -right-1 -top-1"></div>
+        <img src="http://static.photos/technology/200x200/1" class="w-10 h-10 rounded-full border border-green-400">
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content flex-1 flex flex-col">
+    <header class="border-b border-green-900 p-4">
+      <h2 class="text-xl font-bold glow">CONNECTIONS</h2>
+    </header>
+
+    <!-- Search and Add Friend -->
+    <div class="p-4 border-b border-green-900">
+      <div class="flex space-x-2">
+        <input type="text" id="friendSearch" placeholder="Search or add friend" class="terminal-input flex-1 px-4 py-2 rounded">
+        <button class="btn-hacker px-4 rounded">
+          <i data-feather="user-plus"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Friends List -->
+    <div class="flex-1 overflow-y-auto">
+      <div class="divide-y divide-green-900" id="friendsContainer">
+        <!-- Friends will load here dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Feather icons -->
+  <script>feather.replace();</script>
+
+  <!-- Friends JS -->
+  <script type="module" src="js/friends.js"></script>
+</body>
+</html>
