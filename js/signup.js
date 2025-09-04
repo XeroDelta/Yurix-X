@@ -1,6 +1,6 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 // Firebase config
 const firebaseConfig = {
@@ -13,6 +13,7 @@ const firebaseConfig = {
   measurementId: "G-HDF5W64NHE"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -27,31 +28,30 @@ signupForm.addEventListener('submit', async (e) => {
   const password = document.getElementById('password').value;
   const confirmPassword = document.getElementById('confirmPassword').value;
 
-  if (!username) {
-    alert("Please enter a username.");
-    return;
-  }
-
-  if (password !== confirmPassword) {
-    alert("Passwords do not match!");
-    return;
-  }
+  if (!username) return alert("Enter a username!");
+  if (!email) return alert("Enter an email!");
+  if (!password) return alert("Enter a password!");
+  if (password !== confirmPassword) return alert("Passwords do not match!");
 
   try {
+    // Create the user in Firebase Auth
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
-    // Save the username and status to Firestore
+    // Create Firestore document for the user
     await setDoc(doc(db, "users", user.uid), {
-      username,
-      email,
+      username: username,
+      email: email,
       status: "online",
-      profilePic: "https://i.pravatar.cc/150?u=" + user.uid // optional placeholder
+      profilePic: "https://i.pravatar.cc/150?u=" + user.uid,
+      friends: [] // initialize friends array
     });
 
     alert("Signup successful!");
-    window.location.href = "friends.html";
+    window.location.href = "friends.html"; // redirect after signup
+
   } catch (error) {
-    alert(error.message);
+    alert("Signup failed: " + error.message);
+    console.error(error);
   }
 });
