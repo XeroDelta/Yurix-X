@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/signup.html", "destination": "/signup.html" },
+    { "source": "/login.html", "destination": "/login.html" },
+    { "source": "/friends.html", "destination": "/friends.html" },
+    { "source": "/chat.html", "destination": "/chat.html" }
+  ]
+}
