@@ -2,7 +2,6 @@
   "rewrites": [
     { "source": "/", "destination": "/login.html" },
     { "source": "/signup", "destination": "/signup.html" },
-    { "source": "/login", "destination": "/login.html" },
     { "source": "/friends", "destination": "/friends.html" },
     { "source": "/chat", "destination": "/chat.html" }
   ]

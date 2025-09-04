@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HackerChat | Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background-color: #0a0a0a;
+      color: #00ff41;
+    }
+    .terminal-input {
+      background-color: #121212;
+      border: 1px solid #00ff41;
+      color: #00ff41;
+    }
+    .terminal-input:focus {
+      outline: none;
+      border-color: #00ff41;
+      box-shadow: 0 0 0 2px rgba(0, 255, 65, 0.2);
+    }
+    .btn-hacker {
+      background-color: #00ff41;
+      color: #121212;
+      transition: all 0.3s;
+    }
+    .btn-hacker:hover {
+      background-color: #00cc33;
+      transform: translateY(-1px);
+    }
+    .glow {
+      text-shadow: 0 0 5px #00ff41;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center">
+  <div class="w-full max-w-md p-8 rounded-lg" style="background-color: #121212; border: 1px solid #00ff41;">
+    <div class="text-center mb-8">
+      <div class="text-5xl font-bold glow mb-2"><YX/></div>
+      <p class="mt-2 text-center">// next-gen secure comms</p>
+    </div>
+    
+    <form id="loginForm" class="space-y-6">
+      <div>
+        <label for="email" class="block mb-1">EMAIL</label>
+        <input type="email" id="email" class="terminal-input w-full px-4 py-2 rounded" placeholder="user@domain.com">
+      </div>
+      <div>
+        <label for="password" class="block mb-1">PASSWORD</label>
+        <input type="password" id="password" class="terminal-input w-full px-4 py-2 rounded" placeholder="********">
+      </div>
+      <button type="submit" class="btn-hacker w-full py-2 rounded font-bold">
+        <i data-feather="terminal" class="inline mr-2"></i> LOGIN
+      </button>
+    </form>
+    
+    <div class="mt-6 text-center">
+      <p class="text-sm">No account? <a href="signup.html" class="text-green-400 hover:underline">Create one</a></p>
+    </div>
+  </div>
+
+  <script>
+    feather.replace();
+  </script>
+
+  <!-- Use your login module -->
+  <script type="module" src="js/login.js"></script>
+</body>
+</html>
