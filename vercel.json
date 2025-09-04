@@ -4,5 +4,27 @@
     { "source": "/signup", "destination": "/signup.html" },
     { "source": "/friends", "destination": "/friends.html" },
     { "source": "/chat", "destination": "/chat.html" }
+  ],
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "login.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "signup.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "friends.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "chat.html",
+      "use": "@vercel/static"
+    }
   ]
 }
